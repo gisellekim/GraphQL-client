@@ -1,9 +1,9 @@
-import React from "react"
 import blessed from "blessed"
 import { render } from "react-blessed"
 import * as dotenv from "dotenv"
 import { MemoryRouter } from "react-router"
 import { App } from "./App"
+import { ClientProvider } from "./auth/ClientProvider"
 
 global.console = require("inspector").console
 
@@ -26,7 +26,9 @@ screen.key(["escape", "q", "C-c"], () => process.exit(0))
 
 render(
   <MemoryRouter>
-    <App />
+    <ClientProvider>
+      <App />
+    </ClientProvider>
   </MemoryRouter>,
   screen
 )
