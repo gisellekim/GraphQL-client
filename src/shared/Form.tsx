@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from "react"
+import React, { ReactNode, useEffect, useRef } from "react"
 
 export type FormValues = {
   textbox: string[]
@@ -28,9 +28,12 @@ export const Form = ({ children, onSubmit }: FormProps) => {
   return (
     <blessed-form
       top={3}
-      keysfocused
+      keys
+      focused
       ref={form}
-      style={{ bg: "white" }}
+      style={{
+        bg: "white",
+      }}
       onSubmit={onSubmit}
     >
       {children(triggerSubmit)}

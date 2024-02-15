@@ -1,12 +1,13 @@
-import { PropsWithChildren, forwardRef } from "react"
+import React, { PropsWithChildren } from "react"
+import { forwardRef } from "react"
 
 type PanelProps = {
-  top?: string | number
-  left?: string | number
-  right?: string | number
-  bottom?: string | number
-  height?: string | number
-  width?: string | number
+  top?: number | string
+  left?: number | string
+  right?: number | string
+  bottom?: number | string
+  width?: number | string
+  height?: number | string
 }
 
 export const Panel = forwardRef<any, PropsWithChildren<PanelProps>>(
@@ -16,10 +17,12 @@ export const Panel = forwardRef<any, PropsWithChildren<PanelProps>>(
         ref={ref}
         focused
         mouse
-        keys
         shadow
+        border={{
+          type: "line",
+        }}
+        keys
         align="center"
-        border={{ type: "line" }}
         style={{
           bg: "white",
           shadow: true,
@@ -27,10 +30,15 @@ export const Panel = forwardRef<any, PropsWithChildren<PanelProps>>(
             bg: "white",
             fg: "black",
           },
-          label: { bg: "white", fg: "black" },
+          label: {
+            bg: "white",
+            fg: "black",
+          },
         }}
         {...rest}
-      />
+      >
+        {children}
+      </blessed-box>
     )
   }
 )

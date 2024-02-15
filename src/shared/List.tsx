@@ -1,4 +1,4 @@
-import { forwardRef } from "react"
+import React, { forwardRef } from "react"
 
 type ListItem = {
   content: string
@@ -29,8 +29,13 @@ export const List = forwardRef<any, ListProps>(
         style={{
           bg: "white",
           fg: "black",
-          selected: { bg: "blue", fg: "white" },
-          border: { type: "line" },
+          selected: {
+            bg: "blue",
+            fg: "white",
+          },
+          border: {
+            type: "line",
+          },
         }}
         {...rest}
       />

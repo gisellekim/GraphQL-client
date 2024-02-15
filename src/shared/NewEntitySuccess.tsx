@@ -1,4 +1,4 @@
-import { useRef, useEffect, useCallback } from "react"
+import React, { useRef, useEffect, useCallback } from "react"
 import open from "open"
 import { Panel } from "./Panel"
 import { Text } from "./Text"
