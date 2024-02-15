@@ -7,7 +7,7 @@ import * as keytar from "keytar"
 import { getCode } from "./getCode"
 
 // this is where I am going to make all the requests
-const GITHUB_BASE_URL = "https://api.gitgub.com/graphql"
+const GITHUB_BASE_URL = "https://api.github.com/graphql"
 
 // this is responsible for actually making the requests
 const httpLink = new HttpLink({ uri: GITHUB_BASE_URL })

@@ -1,3 +1,4 @@
+import React from "react"
 import blessed from "blessed"
 import { render } from "react-blessed"
 import * as dotenv from "dotenv"
@@ -12,7 +13,7 @@ dotenv.config()
 const screen = blessed.screen({
   autoPadding: true,
   smartCSR: true,
-  sendFocu: true,
+  sendFocus: true,
   title: "Github Manager",
   cursor: {
     color: "black",

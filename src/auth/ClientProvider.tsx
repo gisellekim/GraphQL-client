@@ -1,5 +1,5 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client"
-import { FC, PropsWithChildren } from "react"
+import React, { FC, PropsWithChildren } from "react"
 import { authFlowLink } from "./authFlowLink"
 
 export const ClientProvider: FC<PropsWithChildren<{}>> = ({ children }) => {

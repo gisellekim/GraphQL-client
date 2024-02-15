@@ -18,15 +18,15 @@ export const getCode = (): Promise<string> => {
           if (!req.url) {
             return
           }
-
           const { code } = url.parse(req.url, true).query
-          res.writeHead(200, { "content-Type": "text/html" })
+
+          res.writeHead(200, { "Content-Type": "text/html" })
           res.write(html)
           res.end()
 
           const data = new FormData()
-          data.append("client_id", process.env.CLIENT_ID)
-          data.append("client_secret", process.env.CLIENT_SECRET)
+          data.append("client_id", process.env.CLIENT_ID!)
+          data.append("client_secret", process.env.CLIENT_SECRET!)
           data.append("code", code)
           data.append("state", "abc")
           data.append("redirect_uri", "http://localhost:3000")
@@ -52,7 +52,7 @@ export const getCode = (): Promise<string> => {
         .listen(PORT)
     })
     open(
-      `https://github.com/login/oauth/authorize?client_id${process.env.CLIENT_ID}&scope=user%20read:org%20public_repo%20admin:enterprise&state=abc`
+      `https://github.com/login/oauth/authorize?client_id=${process.env.CLIENT_ID}&scope=user%20read:org%20public_repo%20admin:enterprise&state=abc`
     )
   })
 }
