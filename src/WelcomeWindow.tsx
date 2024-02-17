@@ -2,6 +2,7 @@ import React from "react"
 import { useQuery, gql } from "@apollo/client"
 import { Text } from "./shared/Text"
 import { Panel } from "./shared/Panel"
+import { getUserInfo } from "./types/getUserInfo"
 
 const GET_USER_INFO = gql`
   query getUserInfo {
@@ -12,15 +13,8 @@ const GET_USER_INFO = gql`
   }
 `
 
-type UserInfo = {
-  viewer: {
-    name: string
-    bio: string
-  }
-}
-
 export const WelcomeWindow = () => {
-  const { loading, data } = useQuery<UserInfo>(GET_USER_INFO)
+  const { loading, data } = useQuery<getUserInfo>(GET_USER_INFO)
 
   return (
     <Panel height={12} left="center" top="25%">
