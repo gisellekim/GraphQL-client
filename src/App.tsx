@@ -1,5 +1,9 @@
 import React from "react"
 import { WelcomeWindow } from "./WelcomeWindow"
+import { Route } from "react-router"
+import { Issues } from "./Issues"
+import { Repositories } from "./Repositories"
+import { PullRequests } from "./PullRequests"
 
 export const App = () => {
   return (
@@ -8,7 +12,10 @@ export const App = () => {
         bg: "#0000ff",
       }}
     >
-      <WelcomeWindow />
+     <Route exact path="/" component={WelcomeWindow}/>
+     <Route path="/issues" component={Issues}/>
+     <Route path="/repositories" component={Repositories}/>
+     <Route path="/pull-requests" component={PullRequests}/>
     </blessed-box>
   )
 }
