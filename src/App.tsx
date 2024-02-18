@@ -1,9 +1,10 @@
 import React from "react"
 import { WelcomeWindow } from "./WelcomeWindow"
-import { Route } from "react-router"
+import { Route, Switch } from "react-router"
 import { Issues } from "./Issues"
 import { Repositories } from "./Repositories"
 import { PullRequests } from "./PullRequests"
+import { Header } from "./Header"
 
 export const App = () => {
   return (
@@ -12,10 +13,13 @@ export const App = () => {
         bg: "#0000ff",
       }}
     >
-     <Route exact path="/" component={WelcomeWindow}/>
-     <Route path="/issues" component={Issues}/>
-     <Route path="/repositories" component={Repositories}/>
-     <Route path="/pull-requests" component={PullRequests}/>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={WelcomeWindow} />
+        <Route path="/issues" component={Issues} />
+        <Route path="/repositories" component={Repositories} />
+        <Route path="/pull-requests" component={PullRequests} />
+      </Switch>
     </blessed-box>
   )
 }
