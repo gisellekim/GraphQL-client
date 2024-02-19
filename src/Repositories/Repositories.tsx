@@ -1,11 +1,18 @@
 import React from "react"
-import { Panel } from "../shared/Panel"
-import { Text } from "../shared/Text"
+import { Route, Switch, useRouteMatch } from "react-router"
+import { RepositoriesMain } from "./RepositoriesMain"
+
+const NewRepository = () => <>New Repository</>
+const RepositoriesList = () => <>List Repositories</>
 
 export const Repositories = () => {
-    return (
-        <Panel height={10} top="25%" left="center">
-            <Text>Repositories</Text>
-        </Panel>
-    )
+  const match = useRouteMatch()
+
+  return (
+    <Switch>
+      <Route exact path={match.path} component={RepositoriesMain} />
+      <Route path={`{${match.path}/new}`} component={NewRepository} />
+      <Route path={`{${match.path}/list}`} component={RepositoriesList} />
+    </Switch>
+  )
 }
