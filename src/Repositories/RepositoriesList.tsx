@@ -1,9 +1,10 @@
+import React, { useEffect, useRef } from "react"
 import { gql, useQuery } from "@apollo/client"
+import open from "open"
 import { listRepositories } from "./types/listRepositories"
 import { Panel } from "../shared/Panel"
 import { Text } from "../shared/Text"
 import { List } from "../shared/List"
-import { useEffect, useRef } from "react"
 
 const LIST_REPOSITORIES = gql`
   query listRepositories {
@@ -20,7 +21,12 @@ const LIST_REPOSITORIES = gql`
 
 export const RepositoriesList = () => {
   const { loading, error, data } = useQuery<listRepositories>(LIST_REPOSITORIES)
+  const listRef = useRef<any>()
   const repos = data?.viewer.repositories.nodes
+
+  useEffect(() => {
+    listRef?.current?.focus()
+  }, [data])
 
   if (loading) {
     return (
@@ -33,12 +39,6 @@ export const RepositoriesList = () => {
   if (error) {
     return <>Error: {JSON.stringify(error)}</>
   }
-
-  const listRef = useRef<any>()
-
-  useEffect(() => {
-    listRef?.current?.focus()
-  }, [data])
 
   return (
     <Panel height={10} top="25%" left="center">

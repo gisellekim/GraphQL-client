@@ -10,8 +10,8 @@ export const RepositoriesMain = () => {
   const match = useRouteMatch()
 
   useEffect(() => {
-    ref.current.key("c", () => history.push(`{${match.url}/new}`))
-    ref.current.key("l", () => history.push(`{${match.url}/list}`))
+    ref.current.key("c", () => history.push(`${match.url}/new`))
+    ref.current.key("l", () => history.push(`${match.url}/list`))
   }, [])
 
   return (

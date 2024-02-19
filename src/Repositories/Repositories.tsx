@@ -11,8 +11,8 @@ export const Repositories = () => {
   return (
     <Switch>
       <Route exact path={match.path} component={RepositoriesMain} />
-      <Route path={`{${match.path}/new}`} component={NewRepository} />
-      <Route path={`{${match.path}/list}`} component={RepositoriesList} />
+      <Route path={`${match.path}/new`} component={NewRepository} />
+      <Route path={`${match.path}/list`} component={RepositoriesList} />
     </Switch>
   )
 }
