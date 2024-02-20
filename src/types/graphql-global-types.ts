@@ -7,6 +7,15 @@
 // START Enums and Input Objects
 //==============================================================
 
+/**
+ * The repository's visibility level.
+ */
+export enum RepositoryVisibility {
+  INTERNAL = "INTERNAL",
+  PRIVATE = "PRIVATE",
+  PUBLIC = "PUBLIC",
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================
